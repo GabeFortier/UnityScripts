@@ -6,6 +6,7 @@ public class PLayerController : MonoBehaviour
 {
     private Rigidbody2D rb2d;
     private float distanceToGround;
+    public IDictionary<string, int> ammoCounts = new Dictionary<string, int>();
     private Collider2D colide;
     private Collider2D ground;
     private int ammoSelect;
@@ -18,6 +19,8 @@ public class PLayerController : MonoBehaviour
         ground = GameObject.FindGameObjectWithTag("Ground").GetComponent<Collider2D>();
         colide = GetComponent<Collider2D>();
         distanceToGround = colide.bounds.extents.y;
+        ammoCounts.Add("fire",0);
+        ammoCounts.Add("water",0);
     }
     bool isGrounded(){
         
